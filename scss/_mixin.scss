@@ -1,0 +1,91 @@
+@import "_colors", "_sizes", "_fonts";
+
+@mixin w-h-template($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex-template($a, $b, $c, $d, $e, $f) {
+  display: $a;
+  flex-direction: $b;
+  flex-wrap: $c;
+  justify-content: $d;
+  align-items: $e;
+  align-content: $f;
+}
+
+@mixin m-p-template(
+  $mtop,
+  $mright,
+  $mbottom,
+  $mleft,
+  $ptop,
+  $pright,
+  $pbottom,
+  $pleft
+) {
+  // top right bottom left
+  margin: $mtop $mright $mbottom $mleft;
+  padding: $ptop $pright $pbottom $pleft;
+}
+
+@mixin position-template($a, $b, $c) {
+  position: $a;
+  top: $b;
+  left: $c;
+}
+
+@mixin input-template($a, $b, $c, $d, $e, $f, $g, $h, $i) {
+  @include w-h-template($a, $b);
+  color: $c;
+  font-size: $d;
+  text-align: $e;
+  border: $f solid 1px;
+  border-radius: $g;
+  outline: $h;
+  background: $i;
+}
+
+@mixin button-template($a, $b, $c, $d, $e, $f, $g, $h) {
+  @include m-p-template(
+    $margin-s,
+    $margin-s,
+    $margin-s,
+    $margin-s,
+    $padding-default,
+    $padding-default,
+    $padding-default,
+    $padding-default
+  );
+
+  @include w-h-template($a, $b);
+  color: $c;
+  border: solid $d 1px;
+  font-family: $e;
+  background: $f;
+  transition: all 1s;
+  opacity: $g;
+  font-size: $h;
+  outline: none;
+
+  &:hover {
+    opacity: 1;
+    color: $color-primary-dark;
+    background-color: $color-light2;
+  }
+}
+
+// @mixin size-changer($size) {
+//   @if $size == 3 {
+//     @include with-height(calc(#{$half-width}/ 2), calc(#{$half-height}/ 3));
+//   }
+//   @if $size == 4 {
+//     @include with-height(
+//       calc(#{$half-width}/ 1 * 0.4),
+//       calc(#{$half-height}/ 4)
+//     );
+//   }
+//   @if $size == 5 {
+//     @include with-height(calc(#{$half-width}/ 3), calc(#{$half-height}/ 4));
+//   }
+// }

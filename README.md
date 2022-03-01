@@ -1,0 +1,3 @@
+# Mines
+
+Simple Mines Game

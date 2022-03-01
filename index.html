@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./styles/main.css">
+
+    <title>Mines</title>
+
+    <!-- <script src="" defer></script> -->
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="user">
+            <div class="user-name">
+                <i class="fas fa-user-circle"></i>
+                <span id="user-name">User_169</span>
+            </div>
+            <div class="user-balance">
+                <span id="balance">0</span>
+                <i class="fas fa-dollar-sign"></i>
+            </div>
+        </div>
+
+        <div class="inputs">
+            <div class="bet-amount">
+                <label for="bet-amount">Bet Amount $</label>
+                <input type="number" value="1" min="1" max="10000" name="bet-amount" id="user-bet-amount"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+                    onKeyDown="if(this.value.length==5 && event.keyCode!=8) return false;">
+                <div class="bet-increase-container">
+                    <button class="btn bet-btn" value="3">3 $</button>
+                    <button class="btn bet-btn" value="5">5 $</button>
+                    <button class="btn bet-btn" value="10">10 $</button>
+                </div>
+            </div>
+            <div class="size-generator">
+                <span>Field size</span>
+                <div class="amount">
+                    <button class="btn f-size" value="4">4</button>
+                    <button class="btn f-size" value="5">5</button>
+                </div>
+            </div>
+            <div class="mines-generator">
+                <span>Number Of Mines</span>
+                <div class="amount">
+                    <button class="btn mine-amount" value="3">3</button>
+                    <button class="btn mine-amount" value="5">5</button>
+                    <button class="btn mine-amount" value="10">10</button>
+                </div>
+            </div>
+            <div class="start-stop">
+                <button id="cashIn" value="bet">Bet</button>
+                <button id="cashOut" value="cash-out">Cash Out</button>
+            </div>
+
+        </div>
+
+        <div class="game">
+            <div id="renderPlace" class="place"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./source/main.js"></script>
+
+</body>
+
+</html>

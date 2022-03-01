@@ -1,0 +1,94 @@
+@import "_mixin", "_colors", "_sizes", "_fonts";
+
+/* Desktops and laptops ----------- */
+@media only screen and (max-width: 1280px) {
+  .container {
+    @include w-h-template($full-width, $full-height);
+    @include flex-template(flex, column, nowrap, center, center, center);
+
+    .inputs {
+      @include w-h-template($full-width, $full-height);
+    }
+
+    .game {
+      @include w-h-template($full-width, $full-height);
+      .place {
+        @include w-h-template($half-width, $half-height);
+
+        @include flex-template(flex, row, wrap, center, center, center);
+
+        .single-mine {
+          margin: 1rem;
+          background-color: rgb(255, 0, 98);
+          border-radius: 5px;
+        }
+
+        .mine1 {
+          @include w-h-template($mine-width - 3%, $mine-height - 3%);
+        }
+        .mine2 {
+          @include w-h-template($mine-width - 7%, $mine-height - 7%);
+        }
+      }
+    }
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media (min-width: 100px) and (max-width: 520px) {
+  .container {
+    .user {
+      .user-name,
+      .user-balance {
+        i {
+          color: $color-light2;
+          font-size: $icon-small;
+          @include m-p-template(
+            $margin-s,
+            $margin-s,
+            $margin-s,
+            $margin-s,
+            $padding-default,
+            $padding-default,
+            $padding-default,
+            $padding-default
+          );
+        }
+
+        span {
+          color: $color-light2;
+          font-size: $font-m;
+          font-family: $text-font;
+        }
+      }
+    }
+    .inputs {
+      .bet-amount {
+        @include flex-template(flex, column, nowrap, center, center, center);
+      }
+    }
+
+    .game {
+      @include w-h-template($full-width, $full-height);
+      .place {
+        @include w-h-template($full-width, $half-height);
+
+        @include flex-template(flex, row, wrap, center, center, center);
+
+        .single-mine {
+          margin: 1rem;
+          background-color: rgb(255, 0, 98);
+        }
+
+        .mine1 {
+          @include w-h-template($mine-width - 5%, $mine-height - 5%);
+          font-size: 2rem;
+        }
+        .mine2 {
+          @include w-h-template($mine-width - 10%, $mine-height - 10%);
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

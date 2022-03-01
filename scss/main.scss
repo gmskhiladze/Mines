@@ -1,0 +1,254 @@
+@import "_mixin", "_colors", "_sizes", "_fonts";
+
+* {
+  @include m-p-template(
+    $margin-default,
+    $margin-default,
+    $margin-default,
+    $margin-default,
+    $padding-default,
+    $padding-default,
+    $padding-default,
+    $padding-default
+  );
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: $color-light;
+  font-size: $font-m;
+  font-family: $font-family-default;
+  background-color: $color-primary-dark;
+}
+
+.container {
+  @include w-h-template($full-width, $full-height);
+  @include flex-template(flex, row, nowrap, center, center, center);
+  background-color: $color-primary-dark;
+
+  .user {
+    @include position-template(absolute, $top, $left);
+    @include w-h-template($full-width, $user-height);
+    @include flex-template(flex, row, nowrap, space-between, center, center);
+
+    .user-name,
+    .user-balance {
+      @include flex-template(flex, row, nowrap, space-between, center, center);
+      @include m-p-template(
+        $margin-m,
+        $margin-m,
+        $margin-m,
+        $margin-m,
+        $padding-default,
+        $padding-default,
+        $padding-default,
+        $padding-default
+      );
+
+      i {
+        color: $color-light2;
+        font-size: $icon-medium;
+        @include m-p-template(
+          $margin-s,
+          $margin-s,
+          $margin-s,
+          $margin-s,
+          $padding-default,
+          $padding-default,
+          $padding-default,
+          $padding-default
+        );
+      }
+
+      span {
+        color: $color-light2;
+        font-size: $font-l;
+        font-family: $text-font;
+      }
+    }
+  }
+
+  .inputs {
+    @include w-h-template($half-width, $half-height);
+    @include flex-template(flex, column, nowrap, center, center, center);
+
+    .bet-amount {
+      @include m-p-template(
+        $margin-s,
+        $margin-s,
+        $margin-s,
+        $margin-s,
+        $padding-default,
+        $padding-default,
+        $padding-default,
+        $padding-default
+      );
+      @include flex-template(flex, row, nowrap, center, center, center);
+      border-bottom: 1px solid $color-light2;
+
+      label {
+        color: $color-light2;
+        font-size: $font-m;
+        font-family: $text-font;
+        @include m-p-template(
+          $margin-s,
+          $margin-s,
+          $margin-s,
+          $margin-s,
+          $padding-default,
+          $padding-default,
+          $padding-default,
+          $padding-default
+        );
+      }
+
+      input {
+        @include m-p-template(
+          $margin-s,
+          $margin-s,
+          $margin-s,
+          $margin-s,
+          $padding-default,
+          $padding-default,
+          $padding-default,
+          $padding-default
+        );
+        @include input-template(
+          $input-width,
+          $input-height,
+          $color-light2,
+          $font-m,
+          center,
+          $color-light2,
+          none,
+          none,
+          transparent
+        );
+      }
+
+      .bet-increase-container {
+        @include flex-template(flex, row, nowrap, center, center, center);
+
+        button {
+          @include button-template(
+            $btn-width,
+            $btn-height,
+            $color-light2,
+            $color-light2,
+            $button-font,
+            transparent,
+            0.8,
+            $font-m
+          );
+        }
+      }
+    }
+
+    .mines-generator,
+    .size-generator {
+      @include flex-template(flex, column, nowrap, center, center, center);
+      @include m-p-template(
+        $margin-s,
+        $margin-s,
+        $margin-s,
+        $margin-s,
+        $padding-default,
+        $padding-default,
+        $padding-default,
+        $padding-default
+      );
+
+      .amount {
+        @include flex-template(flex, row, nowrap, center, center, center);
+
+        button {
+          @include button-template(
+            $btn-width,
+            $btn-height,
+            $color-light2,
+            $color-light2,
+            $button-font,
+            transparent,
+            0.8,
+            $font-m
+          );
+        }
+      }
+
+      span {
+        color: $color-light2;
+        font-size: $font-m;
+        font-family: $text-font;
+      }
+    }
+
+    .start-stop {
+      @include flex-template(flex, row, nowrap, center, center, center);
+      @include m-p-template(
+        $margin-s,
+        $margin-s,
+        $margin-s,
+        $margin-s,
+        $padding-default,
+        $padding-default,
+        $padding-default,
+        $padding-default
+      );
+
+      button {
+        @include button-template(
+          calc(#{$btn-width} * 2),
+          $btn-height,
+          $color-light2,
+          $color-light2,
+          $button-font,
+          transparent,
+          0.8,
+          $font-m
+        );
+      }
+    }
+  }
+
+  .game {
+    @include w-h-template($half-width, $full-height);
+    @include flex-template(flex, row, nowrap, center, center, center);
+
+    .place {
+      @include w-h-template(
+        $full-width,
+        calc(#{$half-height} + #{$half-height}/ 2)
+      );
+
+      @include flex-template(flex, row, wrap, center, center, center);
+
+      .single-mine {
+        margin: 1rem;
+        background-color: rgb(255, 0, 98);
+        border-radius: 5px;
+      }
+
+      .mine1 {
+        @include flex-template(flex, row, wrap, center, center, center);
+        // @include w-h-template($half-width/2.5, $half-height/2.5);
+        @include w-h-template($mine-width, $mine-height);
+        font-size: 4rem;
+      }
+      .mine2 {
+        @include w-h-template($mine-width - 5%, $mine-height - 5%);
+        @include flex-template(flex, row, wrap, center, center, center);
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+// media query
+@import "_media";
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
